@@ -42,6 +42,15 @@ function updateUserDisplay() {
     }
 }
 
+// ==================== LOGOUT FUNCTIONALITY ====================
+document.getElementById('logout-btn').addEventListener('click', function() {
+    // Confirm logout
+    if (confirm('Are you sure you want to logout?')) {
+        // Redirect to logout.php
+        window.location.href = 'logout.php';
+    }
+});
+
 // ==================== LOAD EXPENSES FROM DATABASE ====================
 async function loadExpenses() {
     try {
