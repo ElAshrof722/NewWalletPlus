@@ -140,6 +140,31 @@ img {
     color: rgba(11, 11, 11, 0.5);
 }
 
+
+.btn-logout{
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all var(--transition-speed) ease;
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 82, 82, 0.25);
+}
+
+.btn-logout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 82, 82, 0.4);
+    background: linear-gradient(135deg, #ff5252, #ff4444);
+}
+
 /* ==================== MAIN SECTION ==================== */
 .section {
     background-color: rgba(240, 255, 255, 0.4);
