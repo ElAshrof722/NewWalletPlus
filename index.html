@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExTracker - Expense Dashboard</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- JavaScript -->
+    <script src="js/script.js" defer></script>
+    <div class="content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>
+                    <i class="fa-solid fa-circle-info"></i>
+                    ExTracker
+                </h2>
+            </div>
+            
+            <nav class="links">
+                <a href="index.html" class="links-nav">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="setting.html" class="links-nav">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="image/cb2a1c74.jpg" alt="User Avatar">
+                <div class="user-info">
+                    <p id="username-display">Loading...</p>
+                    <span id="role-display">User View</span>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Section -->
+        <main class="section">
+            <!-- Header -->
+            <header class="main-content">
+                <div class="top-header">
+                    <h1>Financial Control Dashboard</h1>
+                    <p>Welcome! A quick overview of your expenses</p>
+                </div>
+                <div class="display">
+                    <button aria-label="Toggle Calculator">
+                        <i class="fa-solid fa-calculator"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Stats Card (Only Total Expenses) -->
+            <section class="stats-cards">
+                <div class="card expense-card">
+                    <h5>Total Expenses</h5>
+                    <p id="total-expenses">0 EGP</p>
+                    <div class="line-red">
+                        <span id="expense-bar"></span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Analysis Section -->
+            <section class="analysis-section">
+                <div class="analysis-card">
+                    <h3>Expense Analysis</h3>
+                    <div class="pie-chart" id="pie-chart"></div>
+                    <div class="point">
+                        <p class="red">Shopping</p>
+                        <p class="blue">Transport</p>
+                        <p class="green">Food</p>
+                        <p class="gray">Others</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Transactions & Calculator Row -->
+            <div class="tra-calc">
+                <!-- Transactions -->
+                <section class="transactions">
+                    <div class="title">
+                        <h3>
+                            <i class="fa-solid fa-list-ul"></i>
+                            Recent Transactions
+                        </h3>
+                    </div>
+                    <div class="recent">
+                        <div class="category">
+                            <span>Category</span>
+                        </div>
+                        <div class="amount">
+                            <span>Amount</span>
+                        </div>
+                        <div class="status">
+                            <span>Action</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Add Expense Form -->
+                <section class="mini-form">
+                    <div class="text">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <h3>Add Expense</h3>
+                    </div>
+                    
+                    <form id="expense-form">
+                        <div class="input-icon">
+                            <i class="fa-solid fa-pen"></i>
+                            <input type="text" name="expense_name" placeholder="Expense Name" class="small-input" required>
+                        </div>
+                        
+                        <div class="input-icon">
+                            <i class="fa-solid fa-list-ol"></i>
+                            <input type="number" name="amount" placeholder="Amount" class="small-input" step="0.01" min="0.01" required>
+                        </div>
+                        
+                        <select name="category" class="small-input" required>
+                            <option value="">Select Category</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        
+                        <button type="submit" class="small-btn">Save</button>
+                    </form>
+                </section>
+            </div>
+            
+            <!-- Calculator -->
+            <section class="calculator-box">
+                <div class="calc-header">Calculator</div>
+                <input type="text" id="calc-screen" value="0" disabled>
+                
+                <div class="calc-keys">
+                    <button class="btn-red" aria-label="Delete All">DEL</button>
+                    <button class="btn-red span-two" aria-label="Backspace">
+                        <i class="fa-solid fa-delete-left"></i>
+                    </button>
+                    <button class="btn-op" aria-label="Divide">÷</button>
+                    
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button class="btn-op" aria-label="Multiply">×</button>
+                    
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button class="btn-op" aria-label="Add">+</button>
+                    
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button class="btn-op" aria-label="Subtract">-</button>
+                    
+                    <button>0</button>
+                    <button>.</button>
+                    <button class="btn-green span-two" aria-label="Equals">=</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

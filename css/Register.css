@@ -1,0 +1,308 @@
+/* ==================== CSS VARIABLES ==================== */
+:root {
+    --main-color: aliceblue;
+    --purple-gradient: linear-gradient(135deg, #b993f9 0%, #8f5bff 50%, #4a00e0 100%);
+    --dark-purple: #6213bb;
+    --border-radius: 20px;
+    --transition-speed: 0.3s;
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--purple-gradient);
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ==================== REGISTRATION CONTAINER ==================== */
+.register-container {
+    background-color: var(--main-color);
+    border-radius: var(--border-radius);
+    padding: 50px 40px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== LOGO SECTION ==================== */
+.logo-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-section i {
+    font-size: 50px;
+    color: var(--dark-purple);
+    margin-bottom: 15px;
+}
+
+.logo-section h1 {
+    color: var(--dark-purple);
+    font-size: 32px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.logo-section p {
+    color: #666;
+    font-size: 15px;
+    margin: 0;
+}
+
+/* ==================== FORM STYLES ==================== */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(128, 128, 128, 0.5);
+    font-size: 16px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px 50px 15px 45px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    background-color: #f8f9fc;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    transition: all var(--transition-speed) ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--dark-purple);
+    box-shadow: 0 0 0 4px rgba(98, 19, 187, 0.1);
+    background-color: white;
+}
+
+.form-input::placeholder {
+    color: #999;
+}
+
+/* ==================== PASSWORD TOGGLE ==================== */
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(128, 128, 128, 0.5);
+    cursor: pointer;
+    font-size: 16px;
+    transition: color var(--transition-speed) ease;
+}
+
+.password-toggle:hover {
+    color: var(--dark-purple);
+}
+
+/* ==================== BUTTON STYLES ==================== */
+.register-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #091d9bd8, #4a56a0);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.register-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(9, 29, 155, 0.4);
+}
+
+.register-btn:active {
+    transform: translateY(-1px);
+}
+
+.register-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==================== FOOTER LINKS ==================== */
+.form-footer {
+    text-align: center;
+    margin-top: 25px;
+    color: #666;
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: var(--dark-purple);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed) ease;
+}
+
+.form-footer a:hover {
+    color: #4a00e0;
+    text-decoration: underline;
+}
+
+/* ==================== SUCCESS MESSAGE ==================== */
+.success-message {
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 0.3s ease;
+}
+
+.success-message.show {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.success-message i {
+    font-size: 20px;
+}
+
+/* ==================== ERROR MESSAGE BOX ==================== */
+.error-message-box {
+    background-color: #f44336;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 0.3s ease;
+}
+
+.error-message-box.show {
+    display: flex;
+}
+
+.error-message-box i {
+    font-size: 20px;
+}
+
+/* ==================== ERROR MESSAGE (Field) ==================== */
+.error-message {
+    color: #f44336;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* ==================== INFO MESSAGE ==================== */
+.info-message {
+    color: #2196f3;
+    font-size: 12px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-message i {
+    font-size: 12px;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 500px) {
+    .register-container {
+        padding: 40px 25px;
+    }
+
+    .logo-section h1 {
+        font-size: 26px;
+    }
+
+    .logo-section i {
+        font-size: 40px;
+    }
+
+    .form-input {
+        padding: 13px 45px 13px 40px;
+    }
+
+    .register-btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+}

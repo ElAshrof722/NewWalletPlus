@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExTracker - Login</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>
+                <i class="fa-solid fa-circle-info"></i>
+                ExTracker
+            </h1>
+            <p>Login or Create Account</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn">
+                <i class="fa-solid fa-right-to-bracket"></i> Login / Register
+            </button>
+
+            <div class="message" id="message"></div>
+        </form>
+
+        <div class="info-box">
+            <p><strong>Note:</strong> If you don't have an account, one will be created automatically!</p>
+            <p><strong>Admin Access:</strong> Usernames starting with "ad" will have admin privileges (e.g., "admin", "adUser")</p>
+        </div>
+
+        <div class="form-footer" style="margin-top: 15px; text-align: center; color: #666; font-size: 14px;">
+            Don't have an account? <a href="register.html" style="color: #6213bb; text-decoration: none; font-weight: 600;">Create Account</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const messageDiv = document.getElementById('message');
+            
+            try {
+                const response = await fetch('login.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    messageDiv.className = 'message success';
+                    messageDiv.textContent = data.message + (data.is_admin ? ' (Admin Access)' : '');
+                    messageDiv.style.display = 'block';
+                    
+                    // Redirect to index page after 1 second
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                } else {
+                    messageDiv.className = 'message error';
+                    messageDiv.textContent = data.message;
+                    messageDiv.style.display = 'block';
+                }
+            } catch (error) {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = 'An error occurred. Please try again.';
+                messageDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

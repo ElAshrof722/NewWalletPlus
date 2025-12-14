@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExTracker - Settings</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        /* ==================== SETTINGS PAGE STYLES ==================== */
+
+body {
+    min-height: 100vh;
+}
+
+/* ==================== MAIN SETTINGS AREA ==================== */
+.settings-main {
+    background-color: rgba(240, 255, 255, 0.4);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* ==================== SETTINGS HEADER ==================== */
+.settings-header {
+    margin-bottom: 30px;
+}
+
+.settings-header h1 {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.settings-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    margin: 0;
+}
+
+/* ==================== SETTINGS CONTAINER ==================== */
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+}
+
+/* ==================== SETTINGS CARD ==================== */
+.settings-card {
+    background-color: var(--main-color);
+    border-radius: var(--border-radius);
+    padding: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.settings-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ==================== CARD HEADER ==================== */
+.card-header {
+    background: linear-gradient(135deg, #091d9bd8, #4a56a0);
+    padding: 20px 25px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-header h2 {
+    color: white;
+    font-size: 20px;
+    margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-header h2 i {
+    font-size: 20px;
+}
+
+.card-header p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    margin: 0;
+}
+
+/* ==================== CARD CONTENT ==================== */
+.card-content {
+    padding: 25px;
+}
+
+/* ==================== PROFILE SECTION ==================== */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(98, 19, 187, 0.05), rgba(74, 0, 224, 0.05));
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.profile-info h3 {
+    color: var(--dark-purple);
+    font-size: 22px;
+    margin: 0 0 8px 0;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    background: linear-gradient(135deg, #091d9bd8, #4a56a0);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==================== INFO GRID ==================== */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.info-item label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-item label i {
+    color: var(--dark-purple);
+    font-size: 14px;
+}
+
+.info-item p {
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding: 10px 15px;
+    background-color: #f8f9fc;
+    border-radius: 8px;
+    border-left: 3px solid var(--dark-purple);
+}
+
+/* ==================== SECURITY FORM ==================== */
+.security-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group label i {
+    color: var(--dark-purple);
+    font-size: 14px;
+}
+
+.form-group input {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f8f9fc;
+    font-size: 14px;
+    transition: all var(--transition-speed) ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--dark-purple);
+    box-shadow: 0 0 0 4px rgba(98, 19, 187, 0.1);
+    background-color: white;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn-update {
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #091d9bd8, #4a56a0);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all var(--transition-speed) ease;
+    align-self: flex-start;
+}
+
+.btn-update:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(9, 29, 155, 0.3);
+}
+
+.btn-update:active {
+    transform: translateY(0);
+}
+
+/* ==================== DANGER ZONE ==================== */
+.danger-card {
+    border: 2px solid rgba(244, 67, 54, 0.2);
+}
+
+.danger-card .card-header {
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+}
+
+.danger-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.danger-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff5f5;
+    border: 2px solid rgba(244, 67, 54, 0.2);
+    border-radius: 12px;
+    gap: 20px;
+}
+
+.danger-item h3 {
+    color: #d32f2f;
+    font-size: 16px;
+    margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.danger-item h3 i {
+    font-size: 16px;
+}
+
+.danger-item p {
+    color: #666;
+    font-size: 13px;
+    margin: 0;
+}
+
+.btn-logout,
+.btn-danger {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-speed) ease;
+    white-space: nowrap;
+}
+
+.btn-logout {
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+    color: white;
+}
+
+.btn-logout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 82, 82, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+    color: white;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(244, 67, 54, 0.4);
+}
+
+.btn-logout:active,
+.btn-danger:active {
+    transform: translateY(0);
+}
+
+/* ==================== ACTIVE LINK ==================== */
+.links-nav.active {
+    background-color: var(--dark-purple);
+    color: white;
+    transform: translateX(5px);
+}
+
+.links-nav.active i {
+    color: white;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+@media (max-width: 768px) {
+    .settings-main {
+        padding: 20px;
+    }
+    
+    .settings-header h1 {
+        font-size: 24px;
+    }
+    
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .danger-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .btn-logout,
+    .btn-danger {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .settings-container {
+        gap: 15px;
+    }
+    
+    .card-header {
+        padding: 15px 20px;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .profile-img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .profile-info h3 {
+        font-size: 18px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>
+                    <i class="fa-solid fa-circle-info"></i>
+                    ExTracker
+                </h2>
+            </div>
+            
+            <nav class="links">
+                <a href="index.html" class="links-nav">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="setting.html" class="links-nav active">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="image/cb2a1c74.jpg" alt="User Avatar">
+                <div class="user-info">
+                    <p id="username-display">Loading...</p>
+                    <span id="role-display">User View</span>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Settings Section -->
+        <main class="settings-main">
+            <!-- Header -->
+            <header class="settings-header">
+                <div>
+                    <h1>
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </h1>
+                    <p>Manage your account and preferences</p>
+                </div>
+            </header>
+
+            <!-- Settings Cards Container -->
+            <div class="settings-container">
+                
+                <!-- Account Information Card -->
+                <div class="settings-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>
+                                <i class="fa-solid fa-user"></i>
+                                Account Information
+                            </h2>
+                            <p>View your personal information</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="profile-section">
+                            <img src="image/cb2a1c74.jpg" alt="Profile Picture" class="profile-img">
+                            <div class="profile-info">
+                                <h3 id="settings-username">Username</h3>
+                                <span id="settings-role" class="role-badge">User</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>
+                                    <i class="fa-solid fa-user"></i>
+                                    Username
+                                </label>
+                                <p id="display-username">Loading...</p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <label>
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    Account Type
+                                </label>
+                                <p id="display-role">Loading...</p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <label>
+                                    <i class="fa-solid fa-calendar"></i>
+                                    Member Since
+                                </label>
+                                <p>December 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Card -->
+                <div class="settings-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>
+                                <i class="fa-solid fa-lock"></i>
+                                Security
+                            </h2>
+                            <p>Manage your password and security settings</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <form id="password-form" class="security-form">
+                            <div class="form-group">
+                                <label for="current-password">
+                                    <i class="fa-solid fa-key"></i>
+                                    Current Password
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="current-password" 
+                                    name="current-password"
+                                    placeholder="Enter current password"
+                                    minlength="6"
+                                >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="new-password">
+                                    <i class="fa-solid fa-lock"></i>
+                                    New Password
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="new-password" 
+                                    name="new-password"
+                                    placeholder="Enter new password"
+                                    minlength="6"
+                                >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password">
+                                    <i class="fa-solid fa-lock"></i>
+                                    Confirm New Password
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="confirm-password" 
+                                    name="confirm-password"
+                                    placeholder="Confirm new password"
+                                    minlength="6"
+                                >
+                            </div>
+                            
+                            <button type="submit" class="btn-update">
+                                <i class="fa-solid fa-rotate"></i>
+                                Update Password
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Danger Zone Card -->
+                <div class="settings-card danger-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                Danger Zone
+                            </h2>
+                            <p>Actions that affect your account</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="danger-actions">
+                            <div class="danger-item">
+                                <div>
+                                    <h3>
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        Logout
+                                    </h3>
+                                    <p>Sign out from your account</p>
+                                </div>
+                                <button type="button" class="btn-logout" id="logout-btn">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    Logout
+                                </button>
+                            </div>
+                            
+                            <div class="danger-item">
+                                <div>
+                                    <h3>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        Delete All Expenses
+                                    </h3>
+                                    <p>Permanently delete all your expense records</p>
+                                </div>
+                                <button type="button" class="btn-danger" id="delete-all-btn">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    Delete All
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Settings JavaScript -->
+    <script src="js/settings.js"></script>
+</body>
+</html>

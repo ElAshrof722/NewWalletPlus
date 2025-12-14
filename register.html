@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExTracker - Register</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    
+    <!-- Register CSS -->
+    <link rel="stylesheet" href="css/Register.css">
+</head>
+<body>
+    <div class="register-container">
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Registration successful! Redirecting...</span>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message-box" id="errorMessage">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="errorText">An error occurred</span>
+        </div>
+
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <i class="fa-solid fa-circle-info"></i>
+            <h1>ExTracker</h1>
+            <p>Create your account to get started</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form class="register-form" id="registerForm">
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user"></i>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        class="form-input" 
+                        placeholder="Enter your username"
+                        required
+                        minlength="3"
+                    >
+                </div>
+                <div class="error-message" id="usernameError">Username must be at least 3 characters</div>
+                <div class="info-message">
+                    <i class="fa-solid fa-info-circle"></i>
+                    Tip: Start with "ad" for admin privileges (e.g., "admin", "adJohn")
+                </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-input" 
+                        placeholder="Enter your password"
+                        required
+                        minlength="6"
+                    >
+                    <button type="button" class="password-toggle" id="togglePassword">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+                <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        class="form-input" 
+                        placeholder="Confirm your password"
+                        required
+                        minlength="6"
+                    >
+                    <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+                <div class="error-message" id="confirmPasswordError">Passwords do not match</div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="register-btn">
+                <i class="fa-solid fa-user-plus"></i> Create Account
+            </button>
+        </form>
+
+        <!-- Footer Links -->
+        <div class="form-footer">
+            Already have an account? <a href="login.html">Sign In</a>
+        </div>
+    </div>
+
+    <!-- Register JS -->
+    <script src="js/register.js"></script>
+</body>
+</html>

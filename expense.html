@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense</title>
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- Font Awesome Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Main  CSS File -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/expense.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+<style>
+
+</style>
+
+</head>
+<body>
+        <div class="content">
+            <!-- start sidebar -->
+                <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>
+                    <i class="fa-solid fa-circle-info"></i>
+                    ExTracker
+                </h2>
+            </div>
+            
+            <nav class="links">
+                <a href="index.html" class="links-nav">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="expense.html" class="links-nav">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expense</span>
+                </a>
+                <a href="history.html" class="links-nav">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>History</span>
+                </a>
+                <a href="setting.html" class="links-nav">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="image/cb2a1c74.jpg" alt="User Avatar">
+                <div class="user-info">
+                    <p>User / Student</p>
+                    <span>Admin View</span>
+                </div>
+            </div>
+        </aside>
+         <!-- start add -->
+<div class="add">
+<!-- Add Expense Form -->
+        <section class="mini-form">
+            <div class="text">
+                <i class="fa-solid fa-circle-plus"></i>
+                <h3>Add Expense</h3>
+            </div>
+            
+            <form>
+                <div class="input-icon">
+                    <i class="fa-solid fa-pen"></i>
+                    <input type="text" placeholder="Expense Name" class="small-input" required>
+                </div>
+                
+                <div class="input-icon">
+                    <i class="fa-solid fa-list-ol"></i>
+                    <input type="number" placeholder="Amount" class="small-input" required>
+                </div>
+                
+                <select class="small-input" required>
+                    <option value="">Select Category</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="custom">Add New Category</option>
+                </select>
+                
+                <div class="input-iconn">
+                    <input type="text" placeholder="Enter the category you want" class="small-input">
+                </div>
+                
+                <button type="submit" class="small-btn">Save</button>
+            </form>
+        </section>
+    </div>
+</div>
+<!-- end add -->
+</body></html>
